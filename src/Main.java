@@ -1,6 +1,3 @@
-// skeleton game driver
-// ctanis 8/19/15
-
 
 
 import org.lwjgl.Sys;

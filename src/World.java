@@ -57,7 +57,7 @@ public class World {
         this.countw = countw;
         this.counth = counth;
         grid = new Entity[counth][countw];
-        drawEdges = false;;
+        drawEdges = false;
     }
 
     public void clear()

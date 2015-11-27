@@ -14,7 +14,7 @@ import java.io.IOException;
 public class AudioManager
 {
     private HashMap<String, AudioWrapper> sounds;
-    private enum AudioType { LOOP, SAMPLE };
+    private enum AudioType { LOOP, SAMPLE }
 
     private static AudioManager instance;
 
