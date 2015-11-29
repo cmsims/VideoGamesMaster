@@ -33,7 +33,7 @@ public class Main
     {
         initGL(SCR_WIDTH, SCR_HEIGHT);
 
-        new TLDTest().go();
+        //new ProjectileTest().go();
 
         LinkedList<Entity> entities = new LinkedList<>();
 
@@ -41,8 +41,6 @@ public class Main
         // {
         //     entities.add(new Bouncer(i*10, i*30));
         // }
-
-
         entities.add(new AutoButter(300, "res/1.png"));
 
 

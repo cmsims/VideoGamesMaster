@@ -27,7 +27,7 @@ public class Box extends Entity {
 
     public void drawAt(float x, float y, float dx, float dy) {
 
-        GL11.glColor3f(r, g, b);
+        GL11.glColor3f(1, 1, 1);
         GL11.glBegin(GL11.GL_QUADS);
 
         GL11.glVertex2f(x, y);

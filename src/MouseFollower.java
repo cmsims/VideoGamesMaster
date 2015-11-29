@@ -60,7 +60,7 @@ public class MouseFollower extends Entity {
         int mx = Mouse.getX();
         int my = Display.getHeight() - Mouse.getY();
 
-        if (Mouse.isButtonDown(0))
+        if (Mouse.isInsideWindow())
         {
             x += (mx - x)*.01*delta;
             y += (my - y)*.01*delta;

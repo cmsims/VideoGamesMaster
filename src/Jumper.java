@@ -1,3 +1,4 @@
+import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.util.vector.Vector2f;
@@ -137,34 +138,45 @@ public class Jumper extends Entity {
 
 
         // apply gravity
-        Vector2f.add(extraForce,
-                (Vector2f) new Vector2f(0, .001f).scale(delta/mass),
-                extraForce);
+//        Vector2f.add(extraForce,
+//                (Vector2f) new Vector2f(0, .001f).scale(delta/mass),
+//                extraForce);
 
 
 
-        if (Keyboard.isKeyDown(Keyboard.KEY_SPACE))
+//        if (Keyboard.isKeyDown(Keyboard.KEY_SPACE))
+//        {
+//            Vector2f.add(extraForce, new Vector2f(0f, -.01f), extraForce); // force going up
+//        }
+//
+//        // add some horizontal forces in response to key presses
+//        if (Keyboard.isKeyDown(Keyboard.KEY_LEFT))
+//        {
+//            Vector2f.add(extraForce, new Vector2f(-.001f, 0), extraForce);
+//
+//            direction=-1;
+//        }
+//
+//        if (Keyboard.isKeyDown(Keyboard.KEY_RIGHT))
+//        {
+//            Vector2f.add(extraForce, new Vector2f(.001f, 0), extraForce);
+//
+//            direction=1;
+//        }
+
+        int mx = Mouse.getX();
+        int my = Display.getHeight() - Mouse.getY();
+
+        if (Mouse.isInsideWindow())
         {
-            Vector2f.add(extraForce, new Vector2f(0f, -.01f), extraForce); // force going up
+            x += (mx - x)*.01*delta;
+            y += (my - y)*.01*delta;
         }
+        box.setLocation((int) x, (int) y);
 
-        // add some horizontal forces in response to key presses
-        if (Keyboard.isKeyDown(Keyboard.KEY_LEFT))
-        {
-            Vector2f.add(extraForce, new Vector2f(-.001f, 0), extraForce);
-
-            direction=-1;
-        }
-
-        if (Keyboard.isKeyDown(Keyboard.KEY_RIGHT))
-        {
-            Vector2f.add(extraForce, new Vector2f(.001f, 0), extraForce);
-
-            direction=1;
-        }
 
         //shooter code will allow jumper to shoot
-        if (Keyboard.isKeyDown(Keyboard.KEY_E))
+        if (Mouse.isButtonDown(0))
         {
             bullets.add(new Projectile((int)x,(int)y,direction));
             AudioManager aman = AudioManager.getInstance();

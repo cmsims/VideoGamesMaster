@@ -16,13 +16,13 @@ public class Projectile extends Entity {
         // initial x,y.  direction should be 1 to go right, -1 to go left
         public Projectile(int x, int y, int direction) {
                 super(x,y,WIDTH,HEIGHT);
-                velocity = new Vector2f(direction*.3f, -.002f);
+                //velocity = new Vector2f(direction*.3f, -.002f);
 
         }
 
         public void onCollision(Entity other)
         {
-                //if (other instanceof Platform)
+                if (other instanceof Platform)
                 {
 
                         Rectangle overlap = intersection(other);
@@ -54,14 +54,14 @@ public class Projectile extends Entity {
                 float y = hitbox.getY();
 
                 // apply gravity
+//
+//                Vector2f.add(velocity,
+//                        (Vector2f)new Vector2f(0, .0001f).scale(delta),
+//                        velocity);
 
-                Vector2f.add(velocity,
-                        (Vector2f)new Vector2f(0, .0001f).scale(delta),
-                        velocity);
 
-
-                x += velocity.getX()*delta;
-                y += velocity.getY()*delta;
+//                x += velocity.getX()*delta;
+//                y += velocity.getY()*delta;
 
 
                 if (x < 0 - hitbox.getWidth() || x > Display.getWidth())
@@ -79,7 +79,7 @@ public class Projectile extends Entity {
                 int w = hitbox.getWidth();
                 int h = hitbox.getHeight();
 
-                GL11.glColor3f(1,1,0);
+                GL11.glColor3f(0,0,1);
                 GL11.glBegin(GL11.GL_QUADS);
 
                 GL11.glVertex2f(x,y);

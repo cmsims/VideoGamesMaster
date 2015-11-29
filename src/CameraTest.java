@@ -18,7 +18,7 @@ public class CameraTest extends Scene {
     {
         background = new BackgroundClass("res/background.png");
         bullets = new LinkedList<>();
-        jumper = new Jumper("res/furSure.png", bullets);
+        jumper = new Jumper("res/SniperScope.png", bullets);
         target = new Target(200, "res/brain.png");
         platforms = new LinkedList<>();
         platforms.add(new Platform(100, Display.getHeight()-100, 600, 10));
@@ -130,7 +130,7 @@ public class CameraTest extends Scene {
         // draw the minimap
         GL11.glViewport(Display.getWidth()-200, Display.getHeight()-200, 200, 200);
 
-        GL11.glColor3f(0,0,0);
+        GL11.glColor3f(1,1,1);
         GL11.glBegin(GL11.GL_QUADS);
         GL11.glVertex2f(0, 0);
         GL11.glVertex2f(Display.getWidth(), 0);
