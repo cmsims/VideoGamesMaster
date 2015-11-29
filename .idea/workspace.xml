@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c7ac992-273c-4312-8c93-511cd38a7f67" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/SniperScope.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/scope.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GameStuff/Box.class" afterPath="$PROJECT_DIR$/out/production/GameStuff/Box.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GameStuff/CameraTest.class" afterPath="$PROJECT_DIR$/out/production/GameStuff/CameraTest.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GameStuff/Game.class" afterPath="$PROJECT_DIR$/out/production/GameStuff/Game.class" />
@@ -12,13 +10,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GameStuff/MouseFollower.class" afterPath="$PROJECT_DIR$/out/production/GameStuff/MouseFollower.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GameStuff/Projectile.class" afterPath="$PROJECT_DIR$/out/production/GameStuff/Projectile.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Box.java" afterPath="$PROJECT_DIR$/src/Box.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CameraTest.java" afterPath="$PROJECT_DIR$/src/CameraTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Game.java" afterPath="$PROJECT_DIR$/src/Game.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Jumper.java" afterPath="$PROJECT_DIR$/src/Jumper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MouseFollower.java" afterPath="$PROJECT_DIR$/src/MouseFollower.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Projectile.java" afterPath="$PROJECT_DIR$/src/Projectile.java" />
     </list>
     <ignored path="GameStuff.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -695,7 +686,13 @@
       <option name="project" value="LOCAL" />
       <updated>1448656910047</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="added scope and changed backgrounds and such for sniper scope&#10;">
+      <created>1448769589396</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1448769589396</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TodoView">
@@ -774,7 +771,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added libs needed int the libs folder" />
-    <option name="LAST_COMMIT_MESSAGE" value="added libs needed int the libs folder" />
+    <MESSAGE value="added scope and changed backgrounds and such for sniper scope&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="added scope and changed backgrounds and such for sniper scope&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
