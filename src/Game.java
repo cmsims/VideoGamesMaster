@@ -12,15 +12,16 @@ import java.util.LinkedList;
 public class Game {
 
     public static void main(String[] args) throws IOException, LWJGLException {
-        AudioManager aman = AudioManager.getInstance();
-          initGL(800, 800);
+        //AudioManager aman = AudioManager.getInstance();
+          initGL(1200, 800);
 
 
             //this is where i am starting to work on my game
         //TODO: lose the gravity, add a texture that will allow me to immulate a scope
-        aman.loadLoop("song", "res/background-sound.ogg");
-        aman.loadSample("beep", "res/collision.ogg");
-        aman.play("song");
+
+        //aman.loadLoop("song", "res/background-sound.ogg");
+        //aman.loadSample("beep", "res/collision.ogg");
+        //aman.play("song");
         LinkedList<Entity> entities = new LinkedList<>();
         entities.add(new Target(200, "res/target.png"));
         entities.add(new MouseFollower(300, "res/SniperScope.png"));
@@ -46,7 +47,7 @@ public class Game {
         GL11.glEnable(GL11.GL_TEXTURE_2D);
 
         // set "clear" color to black
-        GL11.glClearColor(1, 1, 1, 1);
+        GL11.glClearColor(0, 1, 1, 1);
 
         // enable alpha blending
         GL11.glEnable(GL11.GL_BLEND);

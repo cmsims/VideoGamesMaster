@@ -46,6 +46,7 @@ public class Projectile extends Entity {
 
                         hitbox.setLocation((int)x,(int)y);
                 }
+
         }
 
         public void update(float delta) {

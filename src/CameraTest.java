@@ -19,19 +19,19 @@ public class CameraTest extends Scene {
         background = new BackgroundClass("res/background.png");
         bullets = new LinkedList<>();
         jumper = new Jumper("res/SniperScope.png", bullets);
-        target = new Target(200, "res/brain.png");
+        target = new Target(400, "res/Stick_figure.png");
         platforms = new LinkedList<>();
-        platforms.add(new Platform(100, Display.getHeight()-100, 600, 10));
-        platforms.add(new Platform(100, Display.getHeight()-175, 90, 10));
-        platforms.add(new Platform(250, Display.getHeight()-250, 40, 10));
-        platforms.add(new Platform(175, Display.getHeight()-400, 20, 10));
-        platforms.add(new Platform(300, Display.getHeight()-200, 65, 10));
-        platforms.add(new Platform(175, Display.getHeight()-300, 40, 10));
-        platforms.add(new Platform(75, Display.getHeight()-410, 89, 10));
-        platforms.add(new Platform(300, Display.getHeight()-300, 65, 10));
-        platforms.add(new Platform(300, Display.getHeight()-500, 55, 10));
-        platforms.add(new Platform(310, Display.getHeight()-600, 25, 10));
-        platforms.add(new Platform(60, Display.getHeight()-550, 30, 10));
+        platforms.add(new Platform(100, Display.getHeight()-50, 1000, 20));
+        platforms.add(new Platform(100, Display.getHeight()-175, 90, 140));
+        platforms.add(new Platform(250, Display.getHeight()-250, 90, 200));
+        platforms.add(new Platform(600, Display.getHeight()-230, 90, 200));
+        platforms.add(new Platform(775, Display.getHeight()-200, 65, 150));
+//        platforms.add(new Platform(175, Display.getHeight()-300, 40, 10));
+//        platforms.add(new Platform(75, Display.getHeight()-410, 89, 10));
+//        platforms.add(new Platform(300, Display.getHeight()-300, 65, 10));
+//        platforms.add(new Platform(300, Display.getHeight()-500, 55, 10));
+//        platforms.add(new Platform(310, Display.getHeight()-600, 25, 10));
+//        platforms.add(new Platform(60, Display.getHeight()-550, 30, 10));
 
 
     }
@@ -41,6 +41,8 @@ public class CameraTest extends Scene {
 
     public boolean drawFrame(float delta)
     {
+        //TODO: make this background work
+        //why doesn't this work
         background.draw();
 
         // draw the main screen
