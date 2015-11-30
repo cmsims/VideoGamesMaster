@@ -186,8 +186,8 @@ public class Jumper extends Entity {
 
 
         // apply force to velocity vector
-        extraForce.scale(delta / mass);
-        Vector2f.add(velocity, extraForce, velocity);
+        //extraForce.scale(delta / mass);
+        //Vector2f.add(velocity, extraForce, velocity);
 
 
 
@@ -202,30 +202,30 @@ public class Jumper extends Entity {
 
     public void onCollision(Entity other)
     {
-        if (other instanceof Platform)
-        {
-
-            Rectangle overlap = intersection(other);
-            float x =hitbox.getX();
-            float y =hitbox.getY();
-            double width = overlap.getWidth();
-            double height = overlap.getHeight();
-
-            if (height > width)
-            {
-                // horizontal
-                x-=width;
-                velocity.setX(0);
-            }
-            else
-            {
-                // vertical collision
-                y -= height;
-                velocity.setY(0);
-            }
-
-            hitbox.setLocation((int)x,(int)y);
-        }
+//        if (other instanceof Platform)
+//        {
+//
+//            Rectangle overlap = intersection(other);
+//            float x =hitbox.getX();
+//            float y =hitbox.getY();
+//            double width = overlap.getWidth();
+//            double height = overlap.getHeight();
+//
+//            if (height > width)
+//            {
+//                // horizontal
+//                x-=width;
+//                velocity.setX(0);
+//            }
+//            else
+//            {
+//                // vertical collision
+//                y -= height;
+//                velocity.setY(0);
+//            }
+//
+//            hitbox.setLocation((int)x,(int)y);
+//        }
     }
 
     public int getX(){return hitbox.getX();}

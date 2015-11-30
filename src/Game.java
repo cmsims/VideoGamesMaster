@@ -20,11 +20,14 @@ public class Game {
         //TODO: lose the gravity, add a texture that will allow me to immulate a scope
 
         //aman.loadLoop("song", "res/background-sound.ogg");
-        //aman.loadSample("beep", "res/collision.ogg");
+        //aman.loadSample("beep", "res/collision.ogg");2
         //aman.play("song");
         LinkedList<Entity> entities = new LinkedList<>();
         entities.add(new Target(200, "res/target.png"));
         entities.add(new MouseFollower(300, "res/SniperScope.png"));
+
+
+        new ShooterTest().go();
         new CameraTest().go();
 
         Display.destroy();

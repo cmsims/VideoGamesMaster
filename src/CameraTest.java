@@ -26,7 +26,7 @@ public class CameraTest extends Scene {
         platforms.add(new Platform(250, Display.getHeight()-250, 90, 200));
         platforms.add(new Platform(600, Display.getHeight()-230, 90, 200));
         platforms.add(new Platform(775, Display.getHeight()-200, 65, 150));
-//        platforms.add(new Platform(175, Display.getHeight()-300, 40, 10));
+        platforms.add(new Platform(450, Display.getHeight()-400, 70, 350));
 //        platforms.add(new Platform(75, Display.getHeight()-410, 89, 10));
 //        platforms.add(new Platform(300, Display.getHeight()-300, 65, 10));
 //        platforms.add(new Platform(300, Display.getHeight()-500, 55, 10));
