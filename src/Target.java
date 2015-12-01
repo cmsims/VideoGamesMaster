@@ -81,7 +81,6 @@ public class Target extends Entity {
 
         GL11.glBegin(GL11.GL_QUADS);
 
-
         // top-left of texture tied to top-left of box
         GL11.glTexCoord2f(0,0);
         GL11.glVertex2f(x, y);

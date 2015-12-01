@@ -20,7 +20,7 @@ public class ShooterTest extends Scene {
         background = new BackgroundClass("res/background.png");
         bullets = new LinkedList<>();
         jumper = new Jumper("res/SniperScope.png", bullets);
-        target = new Target(400, "res/On-target.png");
+        target = new Target(50, "res/On-target.png");
         platforms = new LinkedList<>();
         platforms.add(new Platform(100, Display.getHeight()-50, 1000, 20));
         platforms.add(new Platform(100, Display.getHeight()-175, 90, 140));

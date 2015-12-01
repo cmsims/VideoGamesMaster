@@ -18,10 +18,10 @@ import java.util.LinkedList;
 
 public class Game {
 
+
     public static void main(String[] args) throws IOException, LWJGLException {
         //AudioManager aman = AudioManager.getInstance();
           initGL(1400, 900);
-
 
             //this is where i am starting to work on my game
         //TODO: lose the gravity, add a texture that will allow me to immulate a scope
@@ -30,13 +30,31 @@ public class Game {
         //aman.loadSample("beep", "res/collision.ogg");2
         //aman.play("song");
         LinkedList<Entity> entities = new LinkedList<>();
-        entities.add(new Target(200, "res/target.png"));
+        entities.add(new Target(50, "res/target.png"));
         entities.add(new MouseFollower(300, "res/SniperScope.png"));
 
+        Menu gameMenu = new Menu();
+        gameMenu.addItem("Weird Path thing!", new TLDTest());
+        gameMenu.addItem("Shooter Em UPPPPPPP", new ShooterTest());
+        gameMenu.addItem("Camera Tester!", new CameraTest());
+        gameMenu.addItem("Kappa Shoot 1000", new ProjectileTest());
 
-        new ShooterTest().go();
+        gameMenu.addSpecial("Exit", Menu.DO_EXIT);
 
+        Scene currScene = gameMenu;
 
+        while ( currScene.go()  )
+        {
+            // if nextScene() returns null (the default) reload the menu
+            currScene = currScene.nextScene();
+
+            if (currScene == null)
+            {
+                currScene = gameMenu;
+            }
+
+            System.out.println("Changing Scene: " + currScene);
+        }
         Display.destroy();
 
         AudioManager.getInstance().destroy();
@@ -56,7 +74,7 @@ public class Game {
         GL11.glEnable(GL11.GL_TEXTURE_2D);
 
         // set "clear" color to black
-        GL11.glClearColor(0, 1, 1, 1);
+        GL11.glClearColor(0, 0, 0, 1);
 
         // enable alpha blending
         GL11.glEnable(GL11.GL_BLEND);

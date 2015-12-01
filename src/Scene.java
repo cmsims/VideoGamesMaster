@@ -3,16 +3,23 @@ import org.lwjgl.opengl.Display;
 
 public abstract class Scene
 {
+    private boolean doExit = false;
+
+    // return false if the game should be quit
     public abstract boolean drawFrame(float delta);
 
-    protected Scene nextScene() { return this; }
+    // null typically means Game should load menu
+    protected Scene nextScene() { return null; }
 
+    protected void exit()
+    {
+        doExit=true;
+    };
 
-
-    public Scene go()
+    // returns false when game should be exited
+    public boolean go()
     {
         long lastloop = (Sys.getTime()*1000 / Sys.getTimerResolution());
-
 
         boolean keepGoing = true;
         do
@@ -26,11 +33,16 @@ public abstract class Scene
 
             // UPDATE DISPLAY
             Display.update();
+            AudioManager.getInstance().update();
+
+            if (Display.isCloseRequested() || doExit)
+            {
+                return false;
+            }
 
 
-        } while (keepGoing && ! Display.isCloseRequested());
+        } while (keepGoing);
 
-
-        return nextScene();
+        return true;
     }
 }

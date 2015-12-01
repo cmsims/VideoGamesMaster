@@ -72,11 +72,16 @@ public class Jumper extends Entity {
         int w = hitbox.getWidth();
         int h = hitbox.getHeight();
 
-        int zoom=1400;
+        int zoom=800;
 
-        if (Keyboard.isKeyDown(Keyboard.KEY_LSHIFT))
+        if (Keyboard.isKeyDown(Keyboard.KEY_Q))
         {
             zoom=200;
+        }
+
+        if (Keyboard.isKeyDown(Keyboard.KEY_E))
+        {
+            zoom=100;
         }
 
         GL11.glViewport(0,0,Display.getWidth(),Display.getHeight());
@@ -147,38 +152,6 @@ public class Jumper extends Entity {
         }
 
 
-
-
-        Vector2f extraForce = new Vector2f(0,0);
-
-
-        // apply gravity
-//        Vector2f.add(extraForce,
-//                (Vector2f) new Vector2f(0, .001f).scale(delta/mass),
-//                extraForce);
-
-
-
-//        if (Keyboard.isKeyDown(Keyboard.KEY_SPACE))
-//        {
-//            Vector2f.add(extraForce, new Vector2f(0f, -.01f), extraForce); // force going up
-//        }
-//
-//        // add some horizontal forces in response to key presses
-//        if (Keyboard.isKeyDown(Keyboard.KEY_LEFT))
-//        {
-//            Vector2f.add(extraForce, new Vector2f(-.001f, 0), extraForce);
-//
-//            direction=-1;
-//        }
-//
-//        if (Keyboard.isKeyDown(Keyboard.KEY_RIGHT))
-//        {
-//            Vector2f.add(extraForce, new Vector2f(.001f, 0), extraForce);
-//
-//            direction=1;
-//        }
-
         int mx = Mouse.getX();
         int my = Display.getHeight() - Mouse.getY();
 
@@ -199,48 +172,9 @@ public class Jumper extends Entity {
             aman.play("shoot", 0.10f);
         }
 
-
-        // apply force to velocity vector
-        //extraForce.scale(delta / mass);
-        //Vector2f.add(velocity, extraForce, velocity);
-
-
-
         x += velocity.getX()*delta;
         y += velocity.getY()*delta;
-
-
-
-
         hitbox.setLocation((int) x, (int) y);
-    }
-
-    public void onCollision(Entity other)
-    {
-//        if (other instanceof Platform)
-//        {
-//
-//            Rectangle overlap = intersection(other);
-//            float x =hitbox.getX();
-//            float y =hitbox.getY();
-//            double width = overlap.getWidth();
-//            double height = overlap.getHeight();
-//
-//            if (height > width)
-//            {
-//                // horizontal
-//                x-=width;
-//                velocity.setX(0);
-//            }
-//            else
-//            {
-//                // vertical collision
-//                y -= height;
-//                velocity.setY(0);
-//            }
-//
-//            hitbox.setLocation((int)x,(int)y);
-//        }
     }
 
     public int getX(){return hitbox.getX();}
