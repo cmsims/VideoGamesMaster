@@ -72,6 +72,19 @@ public class Jumper extends Entity {
         int w = hitbox.getWidth();
         int h = hitbox.getHeight();
 
+        int zoom=1400;
+
+        if (Keyboard.isKeyDown(Keyboard.KEY_LSHIFT))
+        {
+            zoom=200;
+        }
+
+        GL11.glViewport(0,0,Display.getWidth(),Display.getHeight());
+        GL11.glMatrixMode(GL11.GL_PROJECTION);
+        GL11.glLoadIdentity();
+        GL11.glOrtho(x-zoom/2, x+zoom/2, y+zoom/2, y-zoom/2, 1, -1);
+        GL11.glMatrixMode(GL11.GL_MODELVIEW);
+
         GL11.glColor3f(1,1,1);
         // make the loaded texture the active texture for the OpenGL context
         GL11.glBindTexture(GL11.GL_TEXTURE_2D, texture.getTextureID());
@@ -79,6 +92,8 @@ public class Jumper extends Entity {
 
         GL11.glBegin(GL11.GL_QUADS);
 
+        x-=w/2;
+        y-=h/2;
 
         // top-left of texture tied to top-left of box
         GL11.glTexCoord2f(0,0);

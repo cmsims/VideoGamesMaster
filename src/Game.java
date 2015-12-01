@@ -1,9 +1,16 @@
+import org.lwjgl.BufferUtils;
 import org.lwjgl.Sys;
+
+import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
+
+import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.LWJGLException;
+import org.lwjgl.util.Point;
 
 import java.util.LinkedList;
 
@@ -13,7 +20,7 @@ public class Game {
 
     public static void main(String[] args) throws IOException, LWJGLException {
         //AudioManager aman = AudioManager.getInstance();
-          initGL(1200, 800);
+          initGL(1400, 900);
 
 
             //this is where i am starting to work on my game
@@ -28,7 +35,7 @@ public class Game {
 
 
         new ShooterTest().go();
-        new CameraTest().go();
+
 
         Display.destroy();
 
@@ -37,7 +44,6 @@ public class Game {
 
 
     }
-
 
     public static void initGL(int width, int height) throws LWJGLException
     {
@@ -66,5 +72,6 @@ public class Game {
         // GLU.gluPerspective(90f, 1.333f, 2f, -2f);
         // GL11.glTranslated(0, 0, -500);
         GL11.glMatrixMode(GL11.GL_MODELVIEW);
+
     }
 }

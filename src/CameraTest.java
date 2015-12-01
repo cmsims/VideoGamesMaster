@@ -19,7 +19,9 @@ public class CameraTest extends Scene {
         background = new BackgroundClass("res/background.png");
         bullets = new LinkedList<>();
         jumper = new Jumper("res/SniperScope.png", bullets);
-        target = new Target(400, "res/Stick_figure.png");
+
+        target = new Target(400, "res/On-target.png");
+
         platforms = new LinkedList<>();
         platforms.add(new Platform(100, Display.getHeight()-50, 1000, 20));
         platforms.add(new Platform(100, Display.getHeight()-175, 90, 140));
@@ -43,7 +45,7 @@ public class CameraTest extends Scene {
     {
         //TODO: make this background work
         //why doesn't this work
-        background.draw();
+
 
         // draw the main screen
         GL11.glViewport(0,0,Display.getWidth(),Display.getHeight());
@@ -55,7 +57,7 @@ public class CameraTest extends Scene {
         Projectile bullet;
 
         GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
-
+        background.draw();
         //jumper.update(delta);
         //jumper.draw();
 
@@ -130,23 +132,23 @@ public class CameraTest extends Scene {
         GL11.glMatrixMode(GL11.GL_MODELVIEW);
 
         // draw the minimap
-        GL11.glViewport(Display.getWidth()-200, Display.getHeight()-200, 200, 200);
-
-        GL11.glColor3f(1,1,1);
-        GL11.glBegin(GL11.GL_QUADS);
-        GL11.glVertex2f(0, 0);
-        GL11.glVertex2f(Display.getWidth(), 0);
-        GL11.glVertex2f(Display.getWidth(), Display.getHeight());
-        GL11.glVertex2f(0, Display.getHeight());
-        GL11.glEnd();
-
-
-
-        for (Platform p : platforms)
-        {
-            p.draw();
-        }
-        jumper.draw();
+//        GL11.glViewport(Display.getWidth()-200, Display.getHeight()-200, 200, 200);
+//
+//        GL11.glColor3f(1,1,1);
+//        GL11.glBegin(GL11.GL_QUADS);
+//        GL11.glVertex2f(0, 0);
+//        GL11.glVertex2f(Display.getWidth(), 0);
+//        GL11.glVertex2f(Display.getWidth(), Display.getHeight());
+//        GL11.glVertex2f(0, Display.getHeight());
+//        GL11.glEnd();
+//
+//
+//
+//        for (Platform p : platforms)
+//        {
+//            p.draw();
+//        }
+//        jumper.draw();
 
         return true;
     }

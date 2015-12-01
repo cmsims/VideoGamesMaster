@@ -21,7 +21,7 @@ public class BackgroundClass extends Entity{
 
 
     public BackgroundClass(String pngpath){
-        super(0, Display.getHeight(), Display.getWidth(), Display.getHeight());
+        super(0,0, Display.getWidth(), Display.getHeight());
 
         try
         {

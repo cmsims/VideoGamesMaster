@@ -66,6 +66,7 @@ public class Target extends Entity {
     }
 
 
+
     public void draw() {
 
         int x = hitbox.getX();
