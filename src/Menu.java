@@ -10,6 +10,7 @@ import java.io.IOException;
 
 public class Menu extends Scene {
 
+    LinkedList<Entity> entities = new LinkedList<>();
     private BackgroundClass background;
 
     // a menu item: label and associated Scene to jump to
@@ -47,21 +48,50 @@ public class Menu extends Scene {
     private int currItem;
 
 
-    public Menu()
-    {
+    public Menu() {
         background = new BackgroundClass("res/menu.png");
         items = new LinkedList<>();
 
-        try
-        {
+        try {
             AudioManager.getInstance().loadSample("menuSelect", "res/collision.ogg");
             AudioManager.getInstance().loadSample("menuChoose", "res/shoot.ogg");
-        }
-        catch (IOException e)
-        {
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
+    //      You're an idiot and you will never be good at this
+
+    //    enum StateBasedGame{MENU, SHOOTER}
+    //
+    //    StateBasedGame state = StateBasedGame.MENU;
+    //
+    //    public void update(float delta)
+    //    {
+    //        switch (state)
+    //        {
+    //            case MENU:
+    //
+    //                    Menu gameMenu = new Menu();
+    //                    gameMenu.addItem("Weird Path thing!", new TLDTest());
+    //                    gameMenu.addItem("Shooter Em UPPPPPPP", new ShooterTest());
+    //                    gameMenu.addItem("Camera Tester!", new CameraTest());
+    //                    gameMenu.addItem("Kappa Shoot 1000", new ProjectileTest());
+    //                    gameMenu.addSpecial("Exit", Menu.DO_EXIT);
+    //                    Scene currScene = gameMenu;
+    //                    currScene.go();
+    //
+    //
+    //
+    //                break;
+    //
+    //            case SHOOTER:
+    //
+    //                if(Keyboard.isKeyDown(Keyboard.KEY_F5)){
+    //                new ShooterTest().go();
+    //            }
+    //
+    //        }
+    //    }
 
     // reset menu
     public void clear()

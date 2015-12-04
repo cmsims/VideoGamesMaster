@@ -63,6 +63,7 @@ public class Target extends Entity {
     public void onCollision(Entity other) {
         System.out.println("The target has been hit!");
         randomize();
+
     }
 
 

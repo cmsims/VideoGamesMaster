@@ -1,3 +1,5 @@
+import org.lwjgl.input.Mouse;
+import org.lwjgl.opengl.Display;
 import org.lwjgl.util.Rectangle;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.input.Keyboard;
@@ -12,6 +14,8 @@ public class Shooter extends Entity {
 
     private LinkedList<Projectile> bullets;
     private int direction;
+    private static int height=70;
+    private static int width=60;
 
     private Rectangle box;
     private Texture texture;
@@ -60,37 +64,103 @@ public class Shooter extends Entity {
         float x = hitbox.getX();
         float y = hitbox.getY();
 
-        if (Keyboard.isKeyDown(Keyboard.KEY_RIGHT))
+//        while (Mouse.next()){
+//            if (Mouse.getEventButtonState()) {
+//                if (Mouse.getEventButton() == 0) {
+//                    System.out.println("Left button pressed");
+//                    bullets.add(new Projectile((int)x,(int)y,direction));
+//                    AudioManager aman = AudioManager.getInstance();
+//                    aman.play("shoot", 0.10f);
+//                }
+//            }else {
+//                if (Mouse.getEventButton() == 0) {
+//                    System.out.println("Left button released");
+//                }
+//            }
+//        }
+
+        // fix on boundaries...
+        if (x < 0)
         {
-            x += delta/2;
-            direction=1;
+            x = 0;
+
         }
-        if (Keyboard.isKeyDown(Keyboard.KEY_LEFT))
+
+        if (x > Display.getWidth() - width)
         {
-            x -= delta/2;
-            direction=-1;
+            x = Display.getWidth() - width;
+
         }
-        if (Keyboard.isKeyDown(Keyboard.KEY_UP))
+
+        if (y < 0)
         {
-            y -= delta/2;
+            y = 0;
+
         }
-        if (Keyboard.isKeyDown(Keyboard.KEY_DOWN))
-        {
-            y += delta/2;
+
+        if (y > Display.getHeight() - height) {
+            y = Display.getHeight() - height;
         }
 
 
-        if (Keyboard.isKeyDown(Keyboard.KEY_E))
-        {
-            bullets.add(new Projectile((int)x,(int)y,direction));
-            AudioManager aman = AudioManager.getInstance();
+        int mx = Mouse.getX();
+        int my = Display.getHeight() - Mouse.getY();
 
-            aman.play("shoot", 0.10f);
+        if (Mouse.isInsideWindow())
+        {
+            x += (mx - x)*.01*delta;
+            y += (my - y)*.01*delta;
+        }
+        box.setLocation((int) x, (int) y);
+
+        while (Keyboard.next()) {
+            if (Keyboard.getEventKeyState()) {
+                if (Keyboard.getEventKey() == Keyboard.KEY_SPACE) {
+                    bullets.add(new Projectile((int)x,(int)y,direction));
+                    AudioManager aman = AudioManager.getInstance();
+                   aman.play("shoot", 0.10f);
+                }
+            }
+            else {
+                if (Keyboard.getEventKey() == Keyboard.KEY_SPACE) {
+                    System.out.println("SHOTS FIRED!");
+                }
+            }
         }
 
+        // stupid thing should let me EFFING SHOOT ONE AT A TIME!
+//        while (Mouse.next()) {
+//            if (Mouse.getEventButtonState()) {
+//                if (Mouse.getEventButton() == 1) {
+//                    bullets.add(new Projectile((int)x,(int)y,direction));
+//                    AudioManager aman = AudioManager.getInstance();
+//                    aman.play("shoot", 0.10f);
+//                }
+//            }
+//            else {
+//                if (Mouse.getEventButton() == 1) {
+//                    System.out.println("Shots Fired!");
+//                }
+//            }
+//        }
 
-        hitbox.setLocation((int)x, (int)y);
+
+//        //shooter code will allow jumper to shoot
+//        if (Mouse.isButtonDown(0))
+//        {
+//            bullets.add(new Projectile((int)x,(int)y,direction));
+//            AudioManager aman = AudioManager.getInstance();
+//            aman.play("shoot", 0.10f);
+//        }
+
+
+        hitbox.setLocation((int) x, (int) y);
     }
+
+    public int getX(){return hitbox.getX();}
+
+    public int getY(){return hitbox.getY();}
+
 
 
     public void draw() {
@@ -99,6 +169,24 @@ public class Shooter extends Entity {
         int w = hitbox.getWidth();
         int h = hitbox.getHeight();
 
+        int zoom=800;
+
+        if (Keyboard.isKeyDown(Keyboard.KEY_Q))
+        {
+            zoom=200;
+        }
+
+        if (Keyboard.isKeyDown(Keyboard.KEY_E))
+        {
+            zoom=100;
+        }
+
+        GL11.glViewport(0,0, Display.getWidth(),Display.getHeight());
+        GL11.glMatrixMode(GL11.GL_PROJECTION);
+        GL11.glLoadIdentity();
+        GL11.glOrtho(x-zoom/2, x+zoom/2, y+zoom/2, y-zoom/2, 1, -1);
+        GL11.glMatrixMode(GL11.GL_MODELVIEW);
+
         GL11.glColor3f(1,1,1);
         // make the loaded texture the active texture for the OpenGL context
         GL11.glBindTexture(GL11.GL_TEXTURE_2D, texture.getTextureID());
@@ -106,6 +194,8 @@ public class Shooter extends Entity {
 
         GL11.glBegin(GL11.GL_QUADS);
 
+        x-=w/2;
+        y-=h/2;
 
         // top-left of texture tied to top-left of box
         GL11.glTexCoord2f(0,0);
@@ -125,8 +215,6 @@ public class Shooter extends Entity {
 
         GL11.glEnd();
         GL11.glBindTexture(GL11.GL_TEXTURE_2D, 0);
-
-
 
     }
 

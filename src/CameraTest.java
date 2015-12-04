@@ -85,6 +85,7 @@ public class CameraTest extends Scene {
             {
                 System.out.println("removing inactive projectile");
                 it.remove();
+                bullets.remove();
             }
             else
             {

@@ -1,6 +1,7 @@
 import org.lwjgl.util.Rectangle;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.Display;
+import org.lwjgl.util.glu.Project;
 import org.lwjgl.util.vector.Vector2f;
 
 
@@ -8,10 +9,10 @@ public class Projectile extends Entity {
 
         private static final int WIDTH=10;
         private static final int HEIGHT=5;
-        private static final float SPEED=1f;
+        //private static final float SPEED=1f;
 
-        private Vector2f velocity;
-        private float mass;
+        //private Vector2f velocity;
+        //private float mass;
 
         // initial x,y.  direction should be 1 to go right, -1 to go left
         public Projectile(int x, int y, int direction) {
@@ -35,13 +36,12 @@ public class Projectile extends Entity {
                         {
                                 // horizontal
                                 x-=width;
-                                //velocity.setX(0);
                         }
                         else
                         {
                                 // vertical collision
                                 y -= height;
-                                //velocity.setY(0);
+
                         }
 
                         hitbox.setLocation((int)x,(int)y);
@@ -69,6 +69,11 @@ public class Projectile extends Entity {
                 {
                         this.deactivate();
                 }
+                if (! this.isActive())
+                {
+                        this.destroy();
+                }
+
 
                 hitbox.setLocation((int)x,(int)y);
         }
@@ -80,8 +85,8 @@ public class Projectile extends Entity {
                 int w = hitbox.getWidth();
                 int h = hitbox.getHeight();
 
-                //GL11.glColor3f(0,0,0);
-                //GL11.glBegin(GL11.GL_QUADS);
+                GL11.glColor3f(0,0,0);
+                GL11.glBegin(GL11.GL_QUADS);
 
                 GL11.glVertex2f(x,y);
                 GL11.glVertex2f(x+w,y);

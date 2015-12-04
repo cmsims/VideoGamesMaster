@@ -2,6 +2,8 @@ import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.input.Keyboard;
+import org.newdawn.slick.Color;
+import org.newdawn.slick.TrueTypeFont;
 
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -11,16 +13,19 @@ public class ShooterTest extends Scene {
 
     private BackgroundClass background;
     private Target target;
-    private Jumper jumper;
+    private Shooter shooter;
     private LinkedList<Platform> platforms;
     private LinkedList<Projectile> bullets;
 
     public ShooterTest()
     {
-        background = new BackgroundClass("res/background.png");
+        background = new BackgroundClass("res/City2-Wallpaper.png");
         bullets = new LinkedList<>();
-        jumper = new Jumper("res/SniperScope.png", bullets);
-        target = new Target(50, "res/On-target.png");
+        shooter = new Shooter(200, "res/SniperScope.png", bullets);
+        target = new Target(50, "res/kappa.png");
+
+
+
         platforms = new LinkedList<>();
         platforms.add(new Platform(100, Display.getHeight()-50, 1000, 20));
         platforms.add(new Platform(100, Display.getHeight()-175, 90, 140));
@@ -28,6 +33,8 @@ public class ShooterTest extends Scene {
         platforms.add(new Platform(600, Display.getHeight()-230, 90, 200));
         platforms.add(new Platform(775, Display.getHeight()-200, 65, 150));
         platforms.add(new Platform(450, Display.getHeight()-400, 70, 350));
+
+
 //        platforms.add(new Platform(75, Display.getHeight()-410, 89, 10));
 //        platforms.add(new Platform(300, Display.getHeight()-300, 65, 10));
 //        platforms.add(new Platform(300, Display.getHeight()-500, 55, 10));
@@ -36,6 +43,7 @@ public class ShooterTest extends Scene {
 
 
     }
+
 
 
     private int w=200;
@@ -55,8 +63,8 @@ public class ShooterTest extends Scene {
         GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
         background.draw();
         Mouse.setGrabbed(true);
-        jumper.update(delta);
-        jumper.draw();
+        shooter.update(delta);
+        shooter.draw();
 
         Iterator<Projectile> it= bullets.iterator();
         while (it.hasNext())
@@ -83,6 +91,7 @@ public class ShooterTest extends Scene {
             {
                 System.out.println("removing inactive projectile");
                 it.remove();
+
             }
             else
             {
@@ -95,19 +104,7 @@ public class ShooterTest extends Scene {
         target.draw();
 
 
-        if (Keyboard.isKeyDown(Keyboard.KEY_A))
-        {
-            w ++;
-        }
-        if (Keyboard.isKeyDown(Keyboard.KEY_B))
-        {
-            w --;
-        }
-
-
-
-
-        jumper.update(delta);
+        shooter.update(delta);
 
         for (Platform p : platforms)
         {
@@ -117,10 +114,10 @@ public class ShooterTest extends Scene {
 
         for (Platform p : platforms)
         {
-            jumper.testCollision(p);
+            shooter.testCollision(p);
         }
 
-        jumper.draw();
+        shooter.draw();
 
 
         GL11.glMatrixMode(GL11.GL_PROJECTION);
