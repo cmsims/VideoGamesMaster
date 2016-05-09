@@ -36,10 +36,10 @@ public class Game {
         entities.add(new Target(50, "res/kappa.png"));
         entities.add(new MouseFollower(300, "res/SniperScope.png"));
         Menu gameMenu = new Menu();
-        gameMenu.addItem("Weird Path thing!", new TLDTest());
-        gameMenu.addItem("Shooter Em UPPPPPPP", new ShooterTest());
-        gameMenu.addItem("Camera Tester!", new CameraTest());
-        gameMenu.addItem("Kappa Shoot 1000", new ProjectileTest());
+        gameMenu.addItem("A Star Game", new TLDTest());
+        gameMenu.addItem("Shooting Game", new ShooterTest());
+        //gameMenu.addItem("Camera Tester!", new CameraTest());
+        //gameMenu.addItem("Kappa Shoot 1000", new ProjectileTest());
         gameMenu.addSpecial("Exit", Menu.DO_EXIT);
         Scene currScene = gameMenu;
         if (Keyboard.isKeyDown(Keyboard.KEY_F5)){

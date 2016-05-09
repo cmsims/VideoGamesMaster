@@ -49,7 +49,7 @@ public class Menu extends Scene {
 
 
     public Menu() {
-        background = new BackgroundClass("res/menu.png");
+        background = new BackgroundClass("res/City2-Wallpaper.png");
         items = new LinkedList<>();
 
         try {
@@ -180,13 +180,13 @@ public class Menu extends Scene {
         float spacing = Display.getHeight()/(items.size() + 4);
         float offset = 2*spacing;
 
-        TrueTypeFont menuFont = new TrueTypeFont(new Font("Times New Roman", Font.BOLD, 24), true);
+        TrueTypeFont menuFont = new TrueTypeFont(new Font("Times New Roman", Font.BOLD, 22), true);
 
         for (int i=0; i<items.size(); i++)
         {
             if (i == currItem)
             {
-                menuFont.drawString(Display.getWidth()/2, offset, items.get(i).label, Color.red);
+                menuFont.drawString(Display.getWidth()/2, offset, items.get(i).label, Color.green);
             }
             else
             {
